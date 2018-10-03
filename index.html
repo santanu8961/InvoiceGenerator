@@ -1,0 +1,416 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="reset.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="style.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" media="print" href="print.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+                <!-- reset.css -->
+
+    <style>
+        /* 
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com 
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section { 
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000; 
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;   
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+.container{
+    height: 100vh;
+}
+
+.franchiseinfo .companyinfo{
+    display: block;
+    height:30%;
+}
+.main_head{
+    display: block;
+    font-size: 20px;
+    border: 2px solid black;
+    text-align: center;
+    margin: 10px 10px 0px 10px;
+}
+li{
+    display: block;
+    padding: 8px 25px;
+}
+.subbody{
+    display: block;
+    height:80%;
+    border: 2px solid black;
+    margin: 0px 10px 10px 10px;
+}
+.commissioninfo{
+    margin: 10px;
+    border: 2px solid black;
+}
+.foot{
+    margin: 10px;
+    border: 2px solid black;
+    padding: 10px;
+}
+.upload_system{
+    padding: 10px;
+}
+.abcd > tr > td{
+    border: 2px black solid;
+    padding: 4px;
+}
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+  .trData{
+    display: none;
+}
+        @media print {
+            .container{
+                    height: 100vh;
+                }
+
+                .franchiseinfo .companyinfo{
+                    display: block;
+                    height:30%;
+                }
+                .main_head{
+                    display: block;
+                    font-size: 20px;
+                    border: 2px solid black;
+                    text-align: center;
+                    margin: 10px 10px 0px 10px;
+                }
+                li{
+                    display: block;
+                    padding: 8px 25px;
+                }
+                .subbody{
+                    display: block;
+                    height:80%;
+                    border: 2px solid black;
+                    margin: 0px 10px 10px 10px;
+                }
+                .commissioninfo{
+                    margin: 10px;
+                    border: 2px solid black;
+                }
+                .foot{
+                    margin: 10px;
+                    border: 2px solid black;
+                    padding: 10px;
+                }
+                .upload_system , .table_auto , .trData{
+                    display: none;
+                }
+        }
+    </style>
+</head>
+
+<body>
+                                    <!-- main container -->
+    <div class="container">
+            
+        <div class="upload_system">
+            <input type="file" id="file" name="csv" accept=".csv">
+            <button type="button" id ="button1">Upload </button>
+        </div>
+        <div class="table_auto">
+                <table class="abcd center" id="abcd"></table>  
+        </div>
+        <div class="franchiseinfo" id="franchiseinfo"> 
+            <div class="main_head" id="main_head">
+                Franchise Information
+            </div>
+            <div class="franchise subbody" id="#franchise">
+                <ol class="franchise table">
+                    <li><b>Franchise Name :</b> <span id="frnachiseNameSpan"></span></li>
+                    <li><b>Invoice Date :</b> <span id="invoiceDateSpan"></span></li>
+                    <li><b>Invoice Number :</b> <span id="InvoiceNumberSpan"></span></li>
+                    <li><b>Invoice PAN :</b> <span id="InvoicePANSpan"></span></li>
+                    <li><b>Contact Number :</b> <span id="ContactNumberSpan"></span></li>
+                    <li><b>Email :</b> <span id="EmailSpan"></span></li>
+                </ol>
+            </div>
+        </div>
+        <div class="companyinfo" id="companyinfo">
+            <div class="main_head" id="main_head">
+                    Company Information
+            </div>
+            <div class="company subbody">
+                    <ol class="franchise table">
+                            <li><b>Company Name : </b> CashLu Enterprises</li>
+                            <li><b>Company Adress : </b> Office No. 803, Primac Tower, DN-36,Sec-V,SaltLake,Kolkata-70091</li>
+                            <li><b>PAN : </b> AALFC0647E</li>
+                            <li><b>GST : </b> 19AALFC0647E </li>
+                    </ol>
+            </div>
+        </div>
+        <div class="commissioninfo" id="commissioninfo">
+                <ol class="comission table">
+                        <li><b>Total Commission :</b> <span id = 'totalCommission'></span> /-</li>
+                        <li><b>Total commissoin in words :</b> <span id = 'totalCommissionInWords'></span>  only/-</li>
+                </ol>
+        </div>
+        <footer class="foot" id="foot">
+           <b> The above amount is subject to TDS deduction @5%. TDS certificate will be provided at the end of the end 
+            of the quarter in which the payment is made.</b> 
+        </footer>
+
+    </div>
+    <script>
+        $(document).ready(function(){
+    $('#button1').click(function(){
+         //get file object
+    var file = document.getElementById('file').files[0];
+    if (file) {
+        // create reader
+        var reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = function(e) {
+            // browser completed reading file - display it
+            var fileText = e.target.result;
+            
+           var tabContent = fileText.split('\n');
+           var tableContFinal = tabContent.map(obj=>{
+                var trCont = obj.split(',');
+                console.log(trCont);
+                trContDom = trCont.map(inObj=>{
+                    return "<td>"+inObj+"</td>";
+                }).join('');
+                return `<tr>${trContDom}<td><input class=\'trData\' value=\'${obj}\' /><button onclick="renderData(this)" >Show</button></td></tr>`;
+            }).join('');
+            $("#abcd").html(tableContFinal);
+        };
+    }
+ 
+
+
+        // var reader = new FileReader();
+        // if ( ! window.FileReader ) {
+		// 	return alert( 'FileReader API is not supported by your browser.' );
+		// }
+		// var $i = $( '#file' ), // Put file input ID here
+		// 	input = $i[0]; // Getting the element from jQuery
+		// if ( input.files && input.files[0] ) {
+		// 	file = input.files[0]; // The file
+		// 	fr = new FileReader(); // FileReader instance
+		// 	fr.onload = function () {
+		// 		// Do stuff on onload, use fr.result for contents of file
+		// 		console.log( file) ;
+		// 	};
+		// var fileText = fr.readAsText( file );
+			
+		// } else {
+		// 	// Handle errors here
+		// 	alert( "File not selected or browser incompatible." )
+		// }
+    //   var  myfile = input.files[0];
+    //     var myfileContent = fr.readAsText(file);
+    //     console.log(myFile);
+    });
+    
+});
+
+var renderData = (element)=>{
+    var dataString = $(element).parent('td').find('.trData').val();
+    var dataStringArray = dataString.split(',');
+    $("#frnachiseNameSpan").html(dataStringArray[0]);
+    $("#invoiceDateSpan").html(dataStringArray[1]);
+    $("#InvoiceNumberSpan").html(dataStringArray[2]);
+    $("#InvoicePANSpan").html(dataStringArray[3]);
+    $("#ContactNumberSpan").html(dataStringArray[4]);
+    $("#EmailSpan").html(dataStringArray[5]);
+    var valueNew = dataStringArray[6];
+    $('#totalCommission').html(valueNew);    
+    console.log(dataStringArray);
+
+function convertNumberToWords(amount) {
+    var words = new Array();
+    words[0] = '';
+    words[1] = 'one';
+    words[2] = 'two';
+    words[3] = 'three';
+    words[4] = 'four';
+    words[5] = 'five';
+    words[6] = 'six';
+    words[7] = 'seven';
+    words[8] = 'eight';
+    words[9] = 'nine';
+    words[10] = 'ten';
+    words[11] = 'eleven';
+    words[12] = 'twelve';
+    words[13] = 'thirteen';
+    words[14] = 'fourteen';
+    words[15] = 'fifteen';
+    words[16] = 'sixteen';
+    words[17] = 'seventeen';
+    words[18] = 'eighteen';
+    words[19] = 'nineteen';
+    words[20] = 'twenty';
+    words[30] = 'thirty';
+    words[40] = 'forty';
+    words[50] = 'fifty';
+    words[60] = 'sixty';
+    words[70] = 'seventy';
+    words[80] = 'eighty';
+    words[90] = 'ninety';
+    amount = amount.toString();
+    var atemp = amount.split(".");
+    var number = atemp[0].split(",").join("");
+    var n_length = number.length;
+    var words_string = "";
+    if (n_length <= 9) {
+        var n_array = new Array(0, 0, 0, 0, 0, 0, 0, 0, 0);
+        var received_n_array = new Array();
+        for (var i = 0; i < n_length; i++) {
+            received_n_array[i] = number.substr(i, 1);
+        }
+        for (var i = 9 - n_length, j = 0; i < 9; i++, j++) {
+            n_array[i] = received_n_array[j];
+        }
+        for (var i = 0, j = 1; i < 9; i++, j++) {
+            if (i == 0 || i == 2 || i == 4 || i == 7) {
+                if (n_array[i] == 1) {
+                    n_array[j] = 10 + parseInt(n_array[j]);
+                    n_array[i] = 0;
+                }
+            }
+        }
+        value = "";
+        for (var i = 0; i < 9; i++) {
+            if (i == 0 || i == 2 || i == 4 || i == 7) {
+                value = n_array[i] * 10;
+            } else {
+                value = n_array[i];
+            }
+            if (value != 0) {
+                words_string += words[value] + " ";
+            }
+            if ((i == 1 && value != 0) || (i == 0 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "crores ";
+            }
+            if ((i == 3 && value != 0) || (i == 2 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "lakhs ";
+            }
+            if ((i == 5 && value != 0) || (i == 4 && value != 0 && n_array[i + 1] == 0)) {
+                words_string += "thousand ";
+            }
+            if (i == 6 && value != 0 && (n_array[i + 1] != 0 && n_array[i + 2] != 0)) {
+                words_string += "hundred and ";
+            } else if (i == 6 && value != 0) {
+                words_string += "hundred ";
+            }
+        }
+        words_string = words_string.split("  ").join(" ");
+}
+return  words_string.charAt(0).toUpperCase() + words_string.slice(1);
+
+}
+var finalWord =  convertNumberToWords(valueNew);
+console.log(finalWord);
+$('#totalCommissionInWords').html(finalWord);
+    
+};
+    </script>
+ <!-- <script src="script.js"></script> -->
+</body>
+</html>

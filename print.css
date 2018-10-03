@@ -1,0 +1,37 @@
+.container{
+    height: 100vh;
+}
+
+.franchiseinfo .companyinfo{
+    display: block;
+    height:30%;
+}
+.main_head{
+    display: block;
+    font-size: 20px;
+    border: 2px solid black;
+    text-align: center;
+    margin: 10px 10px 0px 10px;
+}
+li{
+    display: block;
+    padding: 8px 25px;
+}
+.subbody{
+    display: block;
+    height:80%;
+    border: 2px solid black;
+    margin: 0px 10px 10px 10px;
+}
+.commissioninfo{
+    margin: 10px;
+    border: 2px solid black;
+}
+.foot{
+    margin: 10px;
+    border: 2px solid black;
+    padding: 10px;
+}
+.upload_system , .table_auto , .trData{
+    display: none;
+}
